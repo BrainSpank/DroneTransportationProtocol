@@ -1,0 +1,8 @@
+# This file will hold the list of drones to be loaded into the world
+# The format is:  DroneType, StartXCoord, StartYCoord, EndXCoord, EndYCoord
+
+# Drone DroneType - The Type of Drone to be used
+
+
+BASICDRONE,0,0,0,10
+BASICDRONE,0,10,0,0
