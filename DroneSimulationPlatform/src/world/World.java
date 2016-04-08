@@ -14,10 +14,13 @@ import java.util.HashSet;
 
 public class World {
 
+    // Constants
+    public final int cellSize = 5;
+    public final double secondsPerTick = 0.5;
+
     public static int time = 0;
     public final int worldDiameterMetres;
     public final int worldDiameterCells;
-    public final int cellSize;
     public final double[] coordinates00 = new double[2];
     private ArrayList<Drone> drones = new ArrayList<>();
     private ArrayList<Drone> completedJourneyDrones = new ArrayList<>();
@@ -29,7 +32,7 @@ public class World {
 
     public World(CityData cd) {
         worldDiameterMetres = cd.cityDiameter;
-        cellSize = cd.cellSize;
+        // cellSize = cd.cellSize; // Configurable Cell Size has been depricated.  It is now a constant value.
         worldDiameterCells = worldDiameterMetres /cellSize;
         worldHeightCells = worldHeightMetres/cellSize;
         coordinates00[0] = cd.xCoordinateOf00;

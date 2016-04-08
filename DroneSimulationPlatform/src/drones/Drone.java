@@ -20,10 +20,10 @@ public abstract class Drone {
     protected final int worldDiameter;
     protected final int worldHeight;
 
-    // This battery is based on 20 mins of flight time (with payload) and travelling 5m/s vertically
-    // and laterally (which makes it a conservative estimate)
-    // TODO: Make travelling up and down more battery intensive than sideways
-    private int battery = 1200;
+    // Battery is shown in seconds that it can power a drone before running out.
+    // A Solo battery last for 25 minutes = 1500 seconds
+    // After each 'tick' the battery will reduce by 0.5, the amount of seconds in a 'tick'
+    private double battery = 1500.0;
 
 
     public Drone(DroneData droneData, int inWorldDiameter, int inWorldHeight) {
@@ -39,6 +39,12 @@ public abstract class Drone {
         worldHeight = inWorldHeight;
 
         waypoints.addFirst(currentPosition);
+    }
+
+
+    // Returns the battery life of the Drone as a percentage.
+    public double getBatteryLife(){
+        return 100*(battery/1500.0);
     }
 
     public abstract void avoid();
@@ -73,13 +79,20 @@ public abstract class Drone {
         for(int i : updateElements){
             if(currentPosition[i] < waypoints.peekFirst()[i]){
                 currentPosition[i]++;
+
+                // If drone is moving vertically upwards, there is an added battery cost.
+                if(i==2){
+                    battery -= 0.5;
+                }
             }
             else{
                 currentPosition[i]--;
             }
         }
 
-        battery--;
+        // General battery cost of any movement
+        battery -= 0.5;
+
         if(battery <= 0){
             throw new OutOfBatteryException();
         }
@@ -100,9 +113,9 @@ public abstract class Drone {
             System.out.println(ArrayPrinter.print(waypoint));
             i++;
         }
-        System.out.println(" Start time: " + startTime);
-        System.out.println(" End time: " + endTime);
-
+        System.out.println("Start time: " + startTime);
+        System.out.println("End time: " + endTime);
+        System.out.println("Remaining Battery Life: " + getBatteryLife() + "%");
         System.out.println();
         }
     }

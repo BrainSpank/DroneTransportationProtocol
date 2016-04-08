@@ -4,10 +4,10 @@
 # String CityName - Unique city identifier.
 # int CityDiameter - Diameter of city in metres.  Used to build size of World Object.
 # int CellSize - The Size that each cell represents in metres cubed.  Default value is 5.
-# float xCoordinateOf00 and yCoordinateOf00 - the realworld coordinates that cell 0,0 will relate to.
+# float xCoordinateOf00 and yCoordinateOf00 - the real world coordinates that cell 0,0 will relate to.
 
 
 Default,5000,5,0.0,0.0
 
-# TO DO: Make values for Cardiff
+# TODO: Make values for Cardiff
 # Cardiff,15000,5,?.?,?.?

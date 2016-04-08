@@ -29,7 +29,7 @@ public class Main {
         System.out.println();
 
 
-
+/*
         Test maxConcurrentBasicTest = new MaxConcurrentTest("BASICDRONE");
         if(maxConcurrentBasicTest.run()){
             System.out.println("Success Test has passed!");
