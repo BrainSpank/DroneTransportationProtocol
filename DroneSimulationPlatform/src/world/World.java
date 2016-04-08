@@ -15,7 +15,7 @@ import java.util.HashSet;
 public class World {
 
     // Constants
-    public final int cellSize = 5;
+    public final static int cellSize = 5;
     public final double secondsPerTick = 0.5;
 
     public static int time = 0;
@@ -71,7 +71,7 @@ public class World {
     private void addDrone(DroneData dd, DroneFactory inFactory) {
         // instantiate drone (using factory)
         DroneFactory factory = inFactory;
-        Drone drone = factory.getDrone(dd, worldDiameterCells, worldHeightCells, cellSize);
+        Drone drone = factory.getDrone(dd, worldDiameterCells, worldHeightCells);
 
         // add drone to drones List
         drones.add(drone);

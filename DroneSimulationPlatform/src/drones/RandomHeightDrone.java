@@ -2,6 +2,7 @@ package drones;
 
 import exceptions.InvalidWaypointException;
 import helpers.DroneData;
+import world.World;
 
 import java.util.Random;
 
@@ -10,9 +11,8 @@ public class RandomHeightDrone extends Drone {
     private int cellSize;
     private Random rand = new Random();
 
-    public RandomHeightDrone(DroneData droneData, int diameter, int height, int inCellSize) throws InvalidWaypointException {
+    public RandomHeightDrone(DroneData droneData, int diameter, int height) throws InvalidWaypointException {
         super(droneData, diameter, height);
-        cellSize = inCellSize;
 
         // plan route
         planRoute();
@@ -32,7 +32,7 @@ public class RandomHeightDrone extends Drone {
         // makes height between range 60-120
         height += 60;
         // Convert height from metres into cells
-        height = height/cellSize;
+        height = height/ World.cellSize;
         if(height == 0){
             System.out.println("CellSize is set too large.  Make it much smaller.");
             System.exit(5);

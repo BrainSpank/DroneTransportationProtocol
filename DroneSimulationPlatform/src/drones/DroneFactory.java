@@ -6,15 +6,15 @@ import helpers.DroneData;
 public class DroneFactory {
     public DroneFactory(){}
 
-    public Drone getDrone(DroneData dd, int diameter, int height, int cellSize){
+    public Drone getDrone(DroneData dd, int diameter, int height){
         try {
             switch (dd.droneType) {
                 case BASICDRONE:
                     return new BasicDrone(dd, diameter, height);
                 case RANDOMHEIGHTDRONE:
-                    return new RandomHeightDrone(dd, diameter, height, cellSize);
+                    return new RandomHeightDrone(dd, diameter, height);
                 case HUBDRONE:
-                    return new HubDrone(dd, diameter, height, cellSize);
+                    return new HubDrone(dd, diameter, height);
                 default:
                     return null;
             }

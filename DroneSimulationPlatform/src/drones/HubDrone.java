@@ -2,6 +2,7 @@ package drones;
 
 import exceptions.InvalidWaypointException;
 import helpers.DroneData;
+import world.World;
 
 import java.util.Random;
 
@@ -9,16 +10,14 @@ import java.util.Random;
 public class HubDrone extends Drone{
 
 
-    // TODO: Override move() method so that it allows for non crashing in hubs and non comleted journeys at destination
+    // TODO: Override move() method so that it allows for non crashing in hubs and non completed journeys at destination
     // current method of checking if journey has completed does not work for HubDrones as their start position is
     // their final destination
 
     private Random rand = new Random();
-    private int cellSize;
 
-    public HubDrone(DroneData dd, int diameter, int height, int inCellSize) throws InvalidWaypointException {
+    public HubDrone(DroneData dd, int diameter, int height) throws InvalidWaypointException {
         super(dd, diameter, height);
-        cellSize = inCellSize;
 
         planRoute();
 
@@ -44,7 +43,7 @@ public class HubDrone extends Drone{
         // makes height between range 60-120
         height += 60;
         // Convert height from metres into cells
-        height = height/cellSize;
+        height = height/ World.cellSize;
         if(height == 0){
             System.out.println("CellSize is set too large.  Make it much smaller.");
             System.exit(5);
