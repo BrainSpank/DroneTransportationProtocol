@@ -1,5 +1,6 @@
 package drones;
 
+import com.company.Main;
 import exceptions.InvalidWaypointException;
 import helpers.DroneData;
 import world.World;
@@ -22,7 +23,7 @@ public class HubDrone extends Drone{
         planRoute();
 
         if(checkWaypointsAreValid() == false){
-            System.out.println("Invalid waypoints.  Check that input start and finish destinations are within " +
+            Main.logger.log("Invalid waypoints.  Check that input start and finish destinations are within " +
                     "legal boundaries, or update route planning method.  ");
             throw new InvalidWaypointException("Caused by HubDrone");
         }
@@ -44,10 +45,6 @@ public class HubDrone extends Drone{
         height += 60;
         // Convert height from metres into cells
         height = height/ World.cellSize;
-        if(height == 0){
-            System.out.println("CellSize is set too large.  Make it much smaller.");
-            System.exit(5);
-        }
 
         waypointUp(height);
         waypointGoTo(destinationPosition[0], destinationPosition[1]);
@@ -57,5 +54,9 @@ public class HubDrone extends Drone{
         waypointGoTo(currentPosition[0], currentPosition[1]);
         waypointLand();
 
+        // Remove first waypoint to account for being released from Hub
+        waypoints.removeFirst();
+        // Update destination to be the finial position because the Drone must return to the original hub.
+        destinationPosition = currentPosition;
     }
 }

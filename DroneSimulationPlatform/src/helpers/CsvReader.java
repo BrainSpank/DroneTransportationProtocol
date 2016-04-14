@@ -1,11 +1,15 @@
 package helpers;
 
+import com.company.Main;
+
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.company.Main.*;
 
 public class CsvReader {
     public CsvReader(){}
@@ -20,7 +24,7 @@ public class CsvReader {
                     CityData returnVal = new CityData(data[0], data[1], data[2], data[3], data[4]);
                     return returnVal;
                 } catch (IndexOutOfBoundsException e){
-                    System.out.println("The City Data is malformed.  Please check the citiesData.csv file.");
+                    logger.log("The City Data is malformed.  Please check the citiesData.csv file.");
                     e.printStackTrace();
                     System.exit(11);
                 }
@@ -28,8 +32,8 @@ public class CsvReader {
         }
 
         // No City Data found
-        System.out.println("No City Data was found for the city: " + city);
-        System.out.println("Add the data to the citiesData.csv file");
+        logger.log("No City Data was found for the city: " + city);
+        logger.log("Add the data to the citiesData.csv file");
         return null;
     }
 
@@ -42,7 +46,7 @@ public class CsvReader {
                 returnData.add(new DroneData(data[0], Integer.parseInt(data[1]), Integer.parseInt(data[2]),
                         Integer.parseInt(data[3]), Integer.parseInt(data[4])));
             } catch (IndexOutOfBoundsException e){
-                System.out.println("The Drone Data is malformed.  Please check the file containing the drone data.");
+                logger.log("The Drone Data is malformed.  Please check the file containing the drone data.");
                 e.printStackTrace();
                 System.exit(12);
             }

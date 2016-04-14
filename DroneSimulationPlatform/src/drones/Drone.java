@@ -1,5 +1,6 @@
 package drones;
 
+import com.company.Main;
 import exceptions.OutOfBatteryException;
 import helpers.ArrayPrinter;
 import helpers.DroneData;
@@ -16,7 +17,7 @@ public abstract class Drone {
     public Integer[] currentPosition = new Integer[3];
 
     protected ArrayDeque<Integer[]> waypoints = new ArrayDeque<>();
-    protected final Integer[] destinationPosition = new Integer[3];
+    protected Integer[] destinationPosition = new Integer[3];
     protected final int worldDiameter;
     protected final int worldHeight;
 
@@ -102,22 +103,20 @@ public abstract class Drone {
     }
 
     public void printStats(){
-        if(false){
-        System.out.println("Drone Status: " + (Arrays.equals(currentPosition, destinationPosition) ? "Journey Complete" : "CRASHED"));
-        System.out.println("Current Position: " + ArrayPrinter.print(currentPosition));
-        System.out.println("Destination Position: " + ArrayPrinter.print(destinationPosition));
+        Main.logger.log("Drone Status: " + (Arrays.equals(currentPosition, destinationPosition) ? "Journey Complete" : "CRASHED"));
+        Main.logger.log("Current Position: " + ArrayPrinter.print(currentPosition));
+        Main.logger.log("Destination Position: " + ArrayPrinter.print(destinationPosition));
         int i = 1;
-        System.out.println("Remaining Waypoints: ");
+        Main.logger.log("Remaining Waypoints: ");
         for(Integer[] waypoint : waypoints){
-            System.out.print("Waypoint " + i + ": ");
-            System.out.println(ArrayPrinter.print(waypoint));
+            Main.logger.log("Waypoint " + i + ": ");
+            Main.logger.log(ArrayPrinter.print(waypoint));
             i++;
         }
-        System.out.println("Start time: " + startTime);
-        System.out.println("End time: " + endTime);
-        System.out.println("Remaining Battery Life: " + getBatteryLife() + "%");
-        System.out.println();
-        }
+        Main.logger.log("Start time: " + startTime);
+        Main.logger.log("End time: " + endTime);
+        Main.logger.log("Remaining Battery Life: " + getBatteryLife() + "%");
+        Main.logger.log("");
     }
 
 
@@ -126,7 +125,7 @@ public abstract class Drone {
         Integer[] newWaypoint = waypoints.peekLast().clone();
         newWaypoint[2] += upByMetres;
         if (newWaypoint[2] > worldHeight){
-            System.out.println("Waypoints cannot be set outside of the world boundaries");
+            Main.logger.log("Waypoints cannot be set outside of the world boundaries");
             newWaypoint[2] = worldHeight;
         }
         waypoints.addLast(newWaypoint);
@@ -138,7 +137,7 @@ public abstract class Drone {
         Integer[] newWaypoint = waypoints.peekLast().clone();
         newWaypoint[2] -= downByMetres;
         if (newWaypoint[2] < 0) {
-            System.out.println("Waypoints cannot be set outside of the world boundaries");
+            Main.logger.log("Waypoints cannot be set outside of the world boundaries");
             newWaypoint[2] = 0;
         }
         waypoints.addLast(newWaypoint);
@@ -159,6 +158,7 @@ public abstract class Drone {
         waypoints.addLast(newWaypoint);
     }
 
+
     protected void waypointLand(){
         Integer[] newWaypoint = waypoints.peekLast().clone();
         newWaypoint[2] = 0;
@@ -175,7 +175,7 @@ public abstract class Drone {
     protected Boolean checkWaypointsAreValid(){
         for(Integer[] waypoint : waypoints){
             if(waypoint[0] > worldDiameter || waypoint[1] > worldDiameter || waypoint[2] > worldHeight){
-                System.out.println("Invalid waypoint!");
+                Main.logger.log("Invalid waypoint!");
                 return false;
             }
         }

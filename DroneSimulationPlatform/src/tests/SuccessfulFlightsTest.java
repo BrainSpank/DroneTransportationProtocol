@@ -8,7 +8,6 @@ public class SuccessfulFlightsTest extends Test{
     }
 
     public Boolean run(){
-        setupWorld();
         droneData = readInDrones("successfulFlightDrones.csv");
         try{
             run(droneData);

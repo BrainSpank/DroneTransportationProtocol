@@ -1,5 +1,6 @@
 package drones;
 
+import com.company.Main;
 import exceptions.InvalidWaypointException;
 import helpers.DroneData;
 import world.World;
@@ -18,7 +19,7 @@ public class RandomHeightDrone extends Drone {
         planRoute();
 
         if(checkWaypointsAreValid() == false){
-            System.out.println("Invalid waypoints.  Check that input start and finish destinations are within " +
+            Main.logger.log("Invalid waypoints.  Check that input start and finish destinations are within " +
                     "legal boundaries, or update route planning method.  ");
             throw new InvalidWaypointException("Caused by RandomHeightDrone");
         }
@@ -33,10 +34,6 @@ public class RandomHeightDrone extends Drone {
         height += 60;
         // Convert height from metres into cells
         height = height/ World.cellSize;
-        if(height == 0){
-            System.out.println("CellSize is set too large.  Make it much smaller.");
-            System.exit(5);
-        }
 
         waypointUp(height);
         waypointGoTo(destinationPosition[0], destinationPosition[1]);

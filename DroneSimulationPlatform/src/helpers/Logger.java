@@ -26,7 +26,6 @@ public class Logger {
         writer.println(message);
     }
 
-
     public void close(){
         writer.close();
     }

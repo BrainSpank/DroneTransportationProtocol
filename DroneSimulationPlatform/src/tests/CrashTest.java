@@ -10,7 +10,6 @@ public class CrashTest extends Test{
 
 
     public Boolean run(){
-        setupWorld();
         droneData = readInDrones("crashDrones.csv");
         // testing
         // for drones to crash

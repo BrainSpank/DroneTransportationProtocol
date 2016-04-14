@@ -1,5 +1,6 @@
 package tests;
 
+import com.company.Main;
 import exceptions.DroneCrashException;
 import helpers.DroneData;
 
@@ -31,7 +32,7 @@ public class MaxConcurrentTest extends Test{
                 try{
                     run(droneData);
                 } catch (DroneCrashException e){
-                    System.out.println("Crash occurred with: " + numOfDrones + " concurrent drones");
+                    Main.logger.log("Crash occurred with: " + numOfDrones + " concurrent drones");
                     sumOfDronesBeforeCrash += numOfDrones;
                     noCrashes= false;
                 }
@@ -40,8 +41,8 @@ public class MaxConcurrentTest extends Test{
 
         int averageDronesBeforeCrash = sumOfDronesBeforeCrash / numOfIterations;
 
-        System.out.println("\nThe Average number of concurrent drones before a crash occurred was: " + averageDronesBeforeCrash);
-        System.out.println("Over: " + numOfIterations + " iterations\n");
+        Main.logger.log("\nThe Average number of concurrent drones before a crash occurred was: " + averageDronesBeforeCrash);
+        Main.logger.log("Over: " + numOfIterations + " iterations\n");
 
         return true;
     }

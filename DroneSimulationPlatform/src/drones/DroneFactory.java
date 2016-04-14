@@ -1,5 +1,6 @@
 package drones;
 
+import com.company.Main;
 import exceptions.InvalidWaypointException;
 import helpers.DroneData;
 
@@ -19,7 +20,7 @@ public class DroneFactory {
                     return null;
             }
         } catch (InvalidWaypointException e){
-            System.out.println(e.getMessage());
+            Main.logger.log(e.getMessage());
             e.printStackTrace();
 
             System.exit(13);

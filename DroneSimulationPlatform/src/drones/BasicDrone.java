@@ -1,5 +1,6 @@
 package drones;
 
+import com.company.Main;
 import exceptions.InvalidWaypointException;
 import helpers.DroneData;
 
@@ -12,7 +13,7 @@ public class BasicDrone extends Drone {
         planRoute();
 
         if(checkWaypointsAreValid() == false){
-            System.out.println("Invalid waypoints.  Check that input start and finish destinations are within " +
+            Main.logger.log("Invalid waypoints.  Check that input start and finish destinations are within " +
                     "legal boundaries, or update route planning method.  ");
             throw new InvalidWaypointException("Caused by HubDrone");
         }

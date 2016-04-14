@@ -1,5 +1,6 @@
 package world;
 
+import com.company.Main;
 import drones.Drone;
 import drones.DroneFactory;
 import exceptions.DroneCrashException;
@@ -8,6 +9,7 @@ import helpers.CityData;
 import helpers.DroneData;
 import helpers.Key;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -22,19 +24,21 @@ public class World {
     public final int worldDiameterMetres;
     public final int worldDiameterCells;
     public final double[] coordinates00 = new double[2];
+    // 500 feet (the max flying height for drones) = 152 metres
+    public final int worldHeightMetres = 152;
+    public final int worldHeightCells = worldHeightMetres/cellSize;
+
     private ArrayList<Drone> drones = new ArrayList<>();
     private ArrayList<Drone> completedJourneyDrones = new ArrayList<>();
-    // 500 feet (the max flying height for drones) = 152 metres
-    private final int worldHeightMetres = 152;
-    private final int worldHeightCells;
     private int maxConcurrentDrones = 0;
+    private ArrayList<Hub> hubs = new ArrayList<>();
+    private final int delayBetweenDroneReleases = 2;
 
 
     public World(CityData cd) {
         worldDiameterMetres = cd.cityDiameter;
         // cellSize = cd.cellSize; // Configurable Cell Size has been depricated.  It is now a constant value.
         worldDiameterCells = worldDiameterMetres /cellSize;
-        worldHeightCells = worldHeightMetres/cellSize;
         coordinates00[0] = cd.xCoordinateOf00;
         coordinates00[1] = cd.yCoordinateOf00;
     }
@@ -43,9 +47,20 @@ public class World {
     public Boolean tick() throws DroneCrashException, OutOfBatteryException{
         Boolean requireNextTick = moveAllDrones();
 
+        Boolean requireNextTick2 = true;
+
+        if(time%delayBetweenDroneReleases == 0) {
+            requireNextTick2 = hubsReleaseDrones();
+        }
+
         Boolean requireAvoid = dronesSense();
 
-        return requireNextTick;
+        if(requireNextTick || requireNextTick2){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 
@@ -56,15 +71,33 @@ public class World {
     }
 
 
+    public void addHubs(ArrayList<Hub> inHubs){
+        hubs.addAll(inHubs);
+    }
+
+
     public void printWorldStats(){
-        System.out.println("# of Completed journeys: " + completedJourneyDrones.size());
-        System.out.println("Maximum Drone density: " + maxConcurrentDrones);
+        Main.logger.log("# of Completed journeys: " + completedJourneyDrones.size());
+        Main.logger.log("Maximum Drone density: " + maxConcurrentDrones);
         int averageJourneyTime = 0;
         for(Drone drone : completedJourneyDrones){
             averageJourneyTime += drone.endTime - drone.startTime;
         }
         averageJourneyTime = averageJourneyTime/completedJourneyDrones.size();
-        System.out.println("Average Journey Time: " + averageJourneyTime);
+        Main.logger.log("Average Journey Time: " + averageJourneyTime);
+    }
+
+
+    private Boolean hubsReleaseDrones(){
+        Boolean remainingUnreleasedDrones = false;
+        for(Hub hub : hubs){
+            Drone d = hub.releaseDrone();
+            if(d != null) {
+                drones.add(hub.releaseDrone());
+                remainingUnreleasedDrones = true;
+            }
+        }
+        return remainingUnreleasedDrones;
     }
 
 
@@ -119,11 +152,11 @@ public class World {
     private void checkForCrashes() throws DroneCrashException{
         HashSet<Drone> crashedDrones = crashOccured();
         if(crashedDrones != null){
-            System.out.println("A crash has occured between 2 or more drones!");
+            Main.logger.log("A crash has occured between 2 or more drones!");
             int i = 1;
             for(Drone d : crashedDrones){
                 d.endTime = World.time;
-                System.out.print("Drone " + i + ": ");
+                Main.logger.log("Drone " + i + ": ");
                 d.printStats();
                 drones.remove(d);
                 i++;

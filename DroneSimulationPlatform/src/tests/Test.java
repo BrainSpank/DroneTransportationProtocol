@@ -18,21 +18,23 @@ public abstract class Test {
 
     protected String defaultWorld = "Default";
 
-    public Test(){}
+    public Test(){
+        setupWorld();
+    }
 
 
-    // This class should set up requirements for a specific test then always call run(ArrayList<DroneData>)
+    // This method should set up requirements for a specific test then always call run(ArrayList<DroneData>)
     public abstract Boolean run();
 
 
-    protected void run(ArrayList<DroneData> droneData) throws DroneCrashException{
-        world.addDrones(droneData);
+    protected void run(ArrayList<DroneData> droneData) throws DroneCrashException {
+        if(droneData != null) {
+            world.addDrones(droneData);
+        }
 
         try {
             // loop through world.tick() until all drones are in finish destination.
             while (world.tick()) {
-                // TODO: Could gather stats here?
-
                 World.time++;
             }
         } catch (OutOfBatteryException e){
@@ -48,9 +50,9 @@ public abstract class Test {
     protected ArrayList<DroneData> readInDrones(String droneFileName){
         String currentDir = System.getProperty("user.dir").toString();
         Path droneJourneysPath = Paths.get(currentDir, "info", droneFileName);
-        ArrayList<DroneData> drones = CsvReader.getDroneData(droneJourneysPath);
+        ArrayList<DroneData> droneData = CsvReader.getDroneData(droneJourneysPath);
 
-        return drones;
+        return droneData;
     }
 
 
