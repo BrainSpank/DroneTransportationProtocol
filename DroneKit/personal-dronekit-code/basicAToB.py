@@ -60,8 +60,9 @@ def arm_and_takeoff(aTargetAltitude):
 
     # Confirm vehicle armed before attempting to take off
     while not vehicle.armed:
+        print " Is Armable?: %s" % vehicle.is_armable
         print " Waiting for arming..."
-        time.sleep(1)
+        time.sleep(5)
 
     print "Taking off!"
     vehicle.simple_takeoff(aTargetAltitude) # Take off to target altitude
