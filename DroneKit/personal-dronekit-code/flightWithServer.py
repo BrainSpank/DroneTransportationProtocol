@@ -1,8 +1,8 @@
 print "Start simulator (SITL)"
 from dronekit_sitl import SITL
 import thread
-import time
 import bluetooth
+from PyBluez import server
 
 def search():
     devices = bluetooth.discover_devices(duration=10, lookup_names = True)
@@ -58,11 +58,9 @@ print "Arming motors"
 vehicle.mode    = VehicleMode("GUIDED")
 vehicle.armed   = True
 
+server()
+
 # Confirm vehicle armed before attempting to take off
 while not vehicle.armed:
     print " Is Armable?: %s" % vehicle.is_armable
     print " Waiting for arming..."
-
-    if(otherDrone != None):
-        print("WOOOOOO MAMAMAMAMAM!!!!")
-    time.sleep(5)
