@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b478fdd-0515-42c7-b3b7-2f754fae4085" name="Default" comment="" />
+    <list default="true" id="8b478fdd-0515-42c7-b3b7-2f754fae4085" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dronekit-python/examples/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dronekit-python/examples/drone_delivery/html/assets/styles.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dronekit-python/examples/drone_delivery/html/bottom-scripts.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dronekit-python/examples/drone_delivery/html/command.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dronekit-python/examples/drone_delivery/html/head.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dronekit-python/examples/drone_delivery/html/header.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dronekit-python/examples/drone_delivery/html/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dronekit-python/examples/drone_delivery/html/mapbox.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dronekit-python/examples/drone_delivery/html/track.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dronekit-python/examples/drone_delivery/requirements.pip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dronekit-python/examples/flight_replay/flight_replay.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dronekit-python/examples/follow_me/fake-gps-data.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dronekit-python/examples/follow_me/run-fake-gps.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dronekit-python/examples/gcs/microgcs.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dronekit-python/examples/gcs/screenshot.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dronekit-python/examples/mission_import_export/mpmission.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dronekit-python/examples/channel_overrides/channel_overrides.py" afterPath="$PROJECT_DIR$/dronekit-python/examples/channel_overrides/channel_overrides.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dronekit-python/examples/create_attribute/create_attribute.py" afterPath="$PROJECT_DIR$/dronekit-python/examples/create_attribute/create_attribute.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dronekit-python/examples/create_attribute/my_vehicle.py" afterPath="$PROJECT_DIR$/dronekit-python/examples/create_attribute/my_vehicle.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dronekit-python/examples/drone_delivery/drone_delivery.py" afterPath="$PROJECT_DIR$/dronekit-python/examples/drone_delivery/drone_delivery.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dronekit-python/examples/follow_me/follow_me.py" afterPath="$PROJECT_DIR$/dronekit-python/examples/follow_me/follow_me.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dronekit-python/examples/guided_set_speed_yaw/guided_set_speed_yaw.py" afterPath="$PROJECT_DIR$/dronekit-python/examples/guided_set_speed_yaw/guided_set_speed_yaw.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dronekit-python/examples/mission_basic/mission_basic.py" afterPath="$PROJECT_DIR$/dronekit-python/examples/mission_basic/mission_basic.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dronekit-python/examples/mission_import_export/mission_import_export.py" afterPath="$PROJECT_DIR$/dronekit-python/examples/mission_import_export/mission_import_export.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dronekit-python/examples/simple_goto/simple_goto.py" afterPath="$PROJECT_DIR$/dronekit-python/examples/simple_goto/simple_goto.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dronekit-python/examples/vehicle_state/vehicle_state.py" afterPath="$PROJECT_DIR$/dronekit-python/examples/vehicle_state/vehicle_state.py" />
+    </list>
     <ignored path="DroneKit.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -15,6 +42,7 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/DroneKit$basicAToB.coverage" NAME="basicAToB Coverage Results" MODIFIED="1456159157331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DroneKit$hello.coverage" NAME="hello Coverage Results" MODIFIED="1461171152661" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/personal-dronekit-code" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -24,12 +52,32 @@
     <favorites_list name="DroneKit" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="basicAToB.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/basicAToB.py">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="hello.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/personal-dronekit-code/hello.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.034802783">
-              <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PyBluezClient.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/personal-dronekit-code/PyBluezClient.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PyBluezServer.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/personal-dronekit-code/PyBluezServer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.31704095">
+              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -37,10 +85,24 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/dronekit-python" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/basicAToB.py" />
+        <option value="$PROJECT_DIR$/personal-dronekit-code/hello.py" />
+        <option value="$PROJECT_DIR$/personal-dronekit-code/bluetoothConnect.py" />
+        <option value="$PROJECT_DIR$/personal-dronekit-code/PyBluezClient.py" />
+        <option value="$PROJECT_DIR$/personal-dronekit-code/PyBluezServer.py" />
       </list>
     </option>
   </component>
@@ -50,12 +112,12 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="54" />
-    <option name="y" value="23" />
-    <option name="width" value="1226" />
-    <option name="height" value="777" />
+    <option name="x" value="1300" />
+    <option name="y" value="-77" />
+    <option name="width" value="1440" />
+    <option name="height" value="877" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -80,6 +142,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -97,19 +161,33 @@
               <option name="myItemId" value="DroneKit" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="personal-dronekit-code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DroneKit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DroneKit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Python.basicAToB">
+  <component name="RunManager" selected="Python.hello">
     <configuration default="false" name="basicAToB" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -124,6 +202,24 @@
       <module name="DroneKit" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/basicAToB.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="hello" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/personal-dronekit-code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="DroneKit" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/personal-dronekit-code/hello.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -198,6 +294,11 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -316,12 +417,14 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Python.basicAToB" />
+      <item index="1" class="java.lang.String" itemvalue="Python.hello" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.basicAToB" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.hello" />
+        <item index="1" class="java.lang.String" itemvalue="Python.basicAToB" />
       </list>
     </recent_temporary>
   </component>
@@ -339,27 +442,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="23" width="1226" height="777" extended-state="6" />
+    <frame x="1300" y="-77" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25844595" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26609442" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -378,10 +481,34 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/basicAToB.py">
+    <entry file="file://$PROJECT_DIR$/personal-dronekit-code/hello.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.034802783">
-          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/personal-dronekit-code/hello.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/personal-dronekit-code/PyBluezClient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/personal-dronekit-code/PyBluezServer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31704095">
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
           <folding />
         </state>
       </provider>
