@@ -104,6 +104,9 @@ print " Global Location: %s" % vehicle.location.global_frame
 print " Global Location (relative altitude): %s" % vehicle.location.global_relative_frame
 print " Local Location: %s" % vehicle.location.local_frame
 
+print " Setting ARMING_CHECK to 0"
+ARMING_CHECK = 0
+
 # Arm and takeoff vehicle
 takeOffAltitude = 20 # in meters
 arm_and_takeoff(takeOffAltitude)
