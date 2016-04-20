@@ -1,6 +1,5 @@
 print "Start simulator (SITL)"
 from dronekit_sitl import SITL
-import thread
 import bluetooth
 from PyBluez import client
 
@@ -39,8 +38,6 @@ print " Last Heartbeat: %s" % vehicle.last_heartbeat
 print " Is Armable?: %s" % vehicle.is_armable
 print " System status: %s" % vehicle.system_status.state
 print " Mode: %s" % vehicle.mode.name    # settable
-
-otherDrone = thread.start_new_thread(search(), None)
 
 """
 Arms vehicle and fly to aTargetAltitude.
