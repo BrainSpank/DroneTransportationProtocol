@@ -14,4 +14,4 @@ while 1:
     if text == "quit":
         break
     s.send(text)
-sock.close()
+s.close()
