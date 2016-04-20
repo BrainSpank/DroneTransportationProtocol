@@ -63,21 +63,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PyBluezClient.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PyBluezClient.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/personal-dronekit-code/PyBluezClient.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.27741084">
+              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PyBluezServer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PyBluezServer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/personal-dronekit-code/PyBluezServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31704095">
-              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -101,8 +101,8 @@
         <option value="$PROJECT_DIR$/basicAToB.py" />
         <option value="$PROJECT_DIR$/personal-dronekit-code/hello.py" />
         <option value="$PROJECT_DIR$/personal-dronekit-code/bluetoothConnect.py" />
-        <option value="$PROJECT_DIR$/personal-dronekit-code/PyBluezClient.py" />
         <option value="$PROJECT_DIR$/personal-dronekit-code/PyBluezServer.py" />
+        <option value="$PROJECT_DIR$/personal-dronekit-code/PyBluezClient.py" />
       </list>
     </option>
   </component>
@@ -497,18 +497,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/personal-dronekit-code/PyBluezClient.py">
+    <entry file="file://$PROJECT_DIR$/personal-dronekit-code/PyBluezServer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/personal-dronekit-code/PyBluezServer.py">
+    <entry file="file://$PROJECT_DIR$/personal-dronekit-code/PyBluezClient.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31704095">
-          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.27741084">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
           <folding />
         </state>
       </provider>
