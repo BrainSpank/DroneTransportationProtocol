@@ -63,6 +63,7 @@ def arm_and_takeoff(aTargetAltitude):
     while not vehicle.armed:
         print " Is Armable?: %s" % vehicle.is_armable
         print " Waiting for arming..."
+        vehicle.armed = True
         time.sleep(5)
 
     print "Taking off!"
@@ -107,7 +108,7 @@ print " Global Location (relative altitude): %s" % vehicle.location.global_relat
 print " Local Location: %s" % vehicle.location.local_frame
 
 print " Setting ARMING_CHECK to 0"
-ARMING_CHECK = 0
+#ARMING_CHECK = 0
 RC3_MIN = 1101
 
 # Arm and takeoff vehicle
