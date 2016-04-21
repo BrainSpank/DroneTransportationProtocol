@@ -62,3 +62,4 @@ server()
 while not vehicle.armed:
     print " Is Armable?: %s" % vehicle.is_armable
     print " Waiting for arming..."
+    time.sleep(5)
