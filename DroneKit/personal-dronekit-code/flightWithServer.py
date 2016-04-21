@@ -58,6 +58,10 @@ vehicle.armed   = True
 
 server()
 
+
+print " Setting ARMING_CHECK to 0"
+ARMING_CHECK = 0
+
 # Confirm vehicle armed before attempting to take off
 while not vehicle.armed:
     print " Is Armable?: %s" % vehicle.is_armable

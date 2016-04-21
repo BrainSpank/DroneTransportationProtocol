@@ -1,7 +1,6 @@
 print "Start simulator (SITL)"
 import sys
 from dronekit_sitl import SITL
-import bluetooth
 from PyBluez import *
 
 if len(sys.argv) == 0 or (sys.argv[0] != "client" and sys.argv[0] != "server"):
@@ -13,8 +12,10 @@ if connectionType == "client":
 else:
     home = '--home=51.00,-3.00,60,180'
 
-sitl = SITL(path="/home/pi/Documents/ardupilot/ArduCopter/ArduCopter.elf")
-# sitl.download('copter', 'stable', verbose=True)
+
+sitl = SITL()
+#sitl = SITL(path="/home/pi/Documents/ardupilot/ArduCopter/ArduCopter.elf")
+sitl.download('copter', 'stable', verbose=True)
 sitl_args = ['-I0', '--model', 'quad', home]
 sitl.launch(sitl_args, await_ready=True, restart=True)
 
@@ -57,6 +58,9 @@ if connectionType == "client":
     socket = client()
 else:
     server()
+
+print " Setting ARMING_CHECK to 0"
+ARMING_CHECK = 0
 
 # Confirm vehicle armed before attempting to take off
 while not vehicle.armed:

@@ -7,8 +7,9 @@ from dronekit_sitl import SITL
 
 # TODO:  Check that there is an internet connection before moving on
 
-sitl = SITL(path="/home/pi/Documents/ardupilot/ArduCopter/ArduCopter.elf")
-# sitl.download('copter', 'stable', verbose=True)
+sitl = SITL()
+#sitl = SITL(path="/home/pi/Documents/ardupilot/ArduCopter/ArduCopter.elf")
+sitl.download('copter', 'stable', verbose=True)
 sitl_args = ['-I0', '--model', 'quad',
              '--home=51.01,-3.01,60,180', '--speedup=1']  # Set home location (lat,lng,alt,yaw) to 180 Rhymeny Street
 
@@ -106,6 +107,7 @@ print " Local Location: %s" % vehicle.location.local_frame
 
 print " Setting ARMING_CHECK to 0"
 ARMING_CHECK = 0
+RC3_MIN = 1101
 
 # Arm and takeoff vehicle
 takeOffAltitude = 20 # in meters
@@ -137,7 +139,6 @@ while vehicle.location._lat != 51.0 and vehicle.location._lon != -3.0:
     print " Battery: %s" % vehicle.battery
 
     time.sleep(10)
-
 
 timeTaken = time.time() - startJourneyTime
 
