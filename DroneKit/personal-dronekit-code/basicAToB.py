@@ -7,9 +7,9 @@ from dronekit_sitl import SITL
 
 # TODO:  Check that there is an internet connection before moving on
 
-sitl = SITL()
-#sitl = SITL(path="/home/pi/Documents/ardupilot/ArduCopter/ArduCopter.elf")
-sitl.download('copter', 'stable', verbose=True)
+#sitl = SITL()
+sitl = SITL(path="/home/pi/Documents/ardupilot/ArduCopter/ArduCopter.elf")
+#sitl.download('copter', 'stable', verbose=True)
 sitl_args = ['-I0', '--model', 'quad',
              '--home=51.01,-3.01,60,180', '--speedup=1']  # Set home location (lat,lng,alt,yaw) to 180 Rhymeny Street
 
