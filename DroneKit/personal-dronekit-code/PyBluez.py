@@ -11,19 +11,19 @@ def client():
     port = 3
     s = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
     s.connect((serverMACAddress, port))
-    #while 1:
-    #    text = raw_input() # Note change to the old (Python 2) raw_input
-    #    if text == "quit":
-    #        break
-    #    s.send(text)
-    #s.close()
+    while 1:
+     text = raw_input() # Note change to the old (Python 2) raw_input
+        if text == "quit":
+            break
+        s.send(text)
+     s.close()
 
-    return s
+    #return s
 
 
 def server():
 
-    hostMACAddress = 'B8:27:EB:FD:16:4B' # The MAC address of a Bluetooth adapter on the server. The server might have multiple Bluetooth adapters.
+    hostMACAddress = '00:19:86:00:0B:10' # The MAC address of a Bluetooth adapter on the server. The server might have multiple Bluetooth adapters.
     port = 3
     backlog = 1
     size = 1024
