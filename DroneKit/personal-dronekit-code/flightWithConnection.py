@@ -7,7 +7,7 @@ from PyBluez import *
 if len(sys.argv) == 0 or sys.argv[0] != "client" or sys.argv[0] != "server":
     print " use command 'python flightWithConnection.py client [or] server' to run"
 
-connectionType = sys.args[0]
+connectionType = sys.argv[0]
 if connectionType == "client":
     home = '--home=51.01,-3.01,60,180'
 else:
