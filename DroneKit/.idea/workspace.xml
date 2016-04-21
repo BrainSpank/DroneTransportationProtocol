@@ -78,13 +78,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="flightWithConnection.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="flightWithConnection.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/personal-dronekit-code/flightWithConnection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
+            <state vertical-scroll-proportion="1.773547">
+              <caret line="158" column="18" selection-start-line="158" selection-start-column="18" selection-end-line="158" selection-end-column="18" />
               <folding>
-                <element signature="e#31#41#0" expanded="true" />
+                <element signature="e#25#90#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,17 +106,17 @@
         <entry file="file://$PROJECT_DIR$/personal-dronekit-code/PyBluez.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+              <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="basicAToB.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="basicAToB.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/personal-dronekit-code/basicAToB.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3006012">
-              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="157" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -144,11 +144,11 @@
         <option value="$PROJECT_DIR$/personal-dronekit-code/PyBluezClient.py" />
         <option value="$PROJECT_DIR$/personal-dronekit-code/PyBluezServer.py" />
         <option value="$PROJECT_DIR$/personal-dronekit-code/flightWithCLient.py" />
-        <option value="$PROJECT_DIR$/personal-dronekit-code/PyBluez.py" />
-        <option value="$PROJECT_DIR$/personal-dronekit-code/flightWithConnection.py" />
         <option value="$PROJECT_DIR$/personal-dronekit-code/flightWithServer.py" />
         <option value="$PROJECT_DIR$/personal-dronekit-code/flightWithClient.py" />
         <option value="$PROJECT_DIR$/personal-dronekit-code/basicAToB.py" />
+        <option value="$PROJECT_DIR$/personal-dronekit-code/PyBluez.py" />
+        <option value="$PROJECT_DIR$/personal-dronekit-code/flightWithConnection.py" />
       </list>
     </option>
   </component>
@@ -600,14 +600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/personal-dronekit-code/PyBluez.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/personal-dronekit-code/flightWithServer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -628,21 +620,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/personal-dronekit-code/flightWithConnection.py">
+    <entry file="file://$PROJECT_DIR$/personal-dronekit-code/PyBluez.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
-          <folding>
-            <element signature="e#31#41#0" expanded="true" />
-          </folding>
+          <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/personal-dronekit-code/basicAToB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3006012">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="157" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/personal-dronekit-code/flightWithConnection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.773547">
+          <caret line="158" column="18" selection-start-line="158" selection-start-column="18" selection-end-line="158" selection-end-column="18" />
+          <folding>
+            <element signature="e#25#90#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
