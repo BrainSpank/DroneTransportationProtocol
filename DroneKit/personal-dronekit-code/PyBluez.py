@@ -23,7 +23,7 @@ def client():
 
 def server():
 
-    hostMACAddress = '00:19:86:00:0B:10' # The MAC address of a Bluetooth adapter on the server. The server might have multiple Bluetooth adapters.
+    hostMACAddress = 'B8:27:EB:FD:16:4B' # The MAC address of a Bluetooth adapter on the server. The server might have multiple Bluetooth adapters.
     port = 3
     backlog = 1
     size = 1024
