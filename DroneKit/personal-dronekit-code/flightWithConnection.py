@@ -117,10 +117,13 @@ RC3_MIN = 1101
 takeOffAltitude = 20 # in meters
 arm_and_takeoff(takeOffAltitude)
 
+
+print " Connecting via Bluetooth"
+s = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
+
 if sys.argv[0] == "client":
     serverMACAddress = 'B8:27:EB:FD:16:4B'
     port = 3
-    s = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
     s.connect((serverMACAddress, port))
 
 else:
@@ -128,7 +131,6 @@ else:
     port = 3
     backlog = 1
     size = 1024
-    s = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
     s.bind((hostMACAddress, port))
     s.listen(backlog)
     try:
@@ -143,8 +145,6 @@ else:
         client.close()
     s.close()
 
-
-s.send()
 
 s.send(" Global Location: %s" % vehicle.location.global_frame)
 s.send(" Global Location (relative altitude): %s" % vehicle.location.global_relative_frame)

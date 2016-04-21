@@ -81,8 +81,8 @@
       <file leaf-file-name="flightWithConnection.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/personal-dronekit-code/flightWithConnection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.4809619">
-              <caret line="169" column="48" selection-start-line="169" selection-start-column="48" selection-end-line="169" selection-end-column="48" />
+            <state vertical-scroll-proportion="-0.12024048">
+              <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
               <folding>
                 <element signature="e#25#90#0" expanded="true" />
               </folding>
@@ -638,8 +638,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/personal-dronekit-code/flightWithConnection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4809619">
-          <caret line="169" column="48" selection-start-line="169" selection-start-column="48" selection-end-line="169" selection-end-column="48" />
+        <state vertical-scroll-proportion="-0.12024048">
+          <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
           <folding>
             <element signature="e#25#90#0" expanded="true" />
           </folding>
