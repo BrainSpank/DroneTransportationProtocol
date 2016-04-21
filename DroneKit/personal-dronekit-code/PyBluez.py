@@ -16,7 +16,7 @@ def client():
         if text == "quit":
             break
         s.send(text)
-     s.close()
+    s.close()
 
     #return s
 
@@ -40,4 +40,4 @@ def server():
     except:
         print("Closing socket")
         client.close()
-        s.close()
+    s.close()
