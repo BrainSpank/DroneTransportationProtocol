@@ -41,6 +41,3 @@ def server():
         print("Closing socket")
         client.close()
     s.close()
-
-
-server()

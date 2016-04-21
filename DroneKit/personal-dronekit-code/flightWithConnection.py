@@ -1,6 +1,8 @@
 # Import DroneKit-Python
 from dronekit import connect, VehicleMode, LocationGlobalRelative
 import time
+import sys
+import bluetooth
 
 print "Start simulator (SITL)"
 from dronekit_sitl import SITL
@@ -59,25 +61,25 @@ def arm_and_takeoff(aTargetAltitude):
     vehicle.mode    = VehicleMode("GUIDED")
     vehicle.armed   = True
 
-    # Confirm vehicle armed before attempting to take off
-    while not vehicle.armed:
-        print " Is Armable?: %s" % vehicle.is_armable
-        print " Waiting for arming..."
-        vehicle.armed = True
-        time.sleep(5)
-
-    print "Taking off!"
-    vehicle.simple_takeoff(aTargetAltitude) # Take off to target altitude
-
-    # Wait until the vehicle reaches a safe height before processing the goto (otherwise the command
-    #  after Vehicle.simple_takeoff will execute immediately).
-    while True:
-        print " Altitude: ", vehicle.location.global_relative_frame.alt
-        #Break and return from function just below target altitude.
-        if vehicle.location.global_relative_frame.alt>=aTargetAltitude*0.95:
-            print "Reached target altitude"
-            break
-        time.sleep(1)
+#    # Confirm vehicle armed before attempting to take off
+#    while not vehicle.armed:
+#        print " Is Armable?: %s" % vehicle.is_armable
+#  #      print " Waiting for arming..."
+#        vehicle.armed = True
+#        time.sleep(5)
+#
+#    print "Taking off!"
+#    vehicle.simple_takeoff(aTargetAltitude) # Take off to target altitude
+#
+#    # Wait until the vehicle reaches a safe height before processing the goto (otherwise the command
+#    #  after Vehicle.simple_takeoff will execute immediately).
+#    while True:
+#        print " Altitude: ", vehicle.location.global_relative_frame.alt
+#        #Break and return from function just below target altitude.
+#        if vehicle.location.global_relative_frame.alt>=aTargetAltitude*0.95:
+#            print "Reached target altitude"
+#            break
+#        time.sleep(1)
 
 
 
@@ -108,49 +110,69 @@ print " Global Location (relative altitude): %s" % vehicle.location.global_relat
 print " Local Location: %s" % vehicle.location.local_frame
 
 print " Setting ARMING_CHECK to 0"
-#ARMING_CHECK = 0
+ARMING_CHECK = 0
 RC3_MIN = 1101
 
 # Arm and takeoff vehicle
 takeOffAltitude = 20 # in meters
 arm_and_takeoff(takeOffAltitude)
 
+if sys.argv[0] == "client":
+    serverMACAddress = 'B8:27:EB:FD:16:4B'
+    port = 3
+    s = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
+    s.connect((serverMACAddress, port))
 
-print " Global Location: %s" % vehicle.location.global_frame
-print " Global Location (relative altitude): %s" % vehicle.location.global_relative_frame
-print " Local Location: %s" % vehicle.location.local_frame
-
-print "Set default/target airspeed to 30 m/s"
-vehicle.airspeed=20
-
-
-print "Going towards first point for 30 seconds ..."
-point1 = LocationGlobalRelative(51.0,-3.0, 20)
-vehicle.simple_goto(point1)
-
-startJourneyTime = time.time()
-
-time.sleep(10)
-
-
-while vehicle.location._lat != 51.0 and vehicle.location._lon != -3.0:
-    print "Still traveling to destination"
-    print "\n Global Location: %s" % vehicle.location.global_frame
-    print " Global Location (relative altitude): %s" % vehicle.location.global_relative_frame
-    print " Local Location: %s" % vehicle.location.local_frame
-    print " Battery: %s" % vehicle.battery
-
-    time.sleep(10)
-
-timeTaken = time.time() - startJourneyTime
-
-print "Journey time: " + str(timeTaken)
+else:
+    hostMACAddress = 'B8:27:EB:FD:16:4B' # The MAC address of a Bluetooth adapter on the server. The server might have multiple Bluetooth adapters.
+    port = 3
+    backlog = 1
+    size = 1024
+    s = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
+    s.bind((hostMACAddress, port))
+    s.listen(backlog)
+    try:
+        client, clientInfo = s.accept()
+        while 1:
+            data = client.recv(size)
+            if data:
+                print(data)
+                client.send(data) # Echo back to client
+    except:
+        print("Closing socket")
+        client.close()
+    s.close()
 
 
-print " Global Location: %s" % vehicle.location.global_frame
-print " Global Location (relative altitude): %s" % vehicle.location.global_relative_frame
-print " Local Location: %s" % vehicle.location.local_frame
+s.send()
 
+s.send(" Global Location: %s" % vehicle.location.global_frame)
+s.send(" Global Location (relative altitude): %s" % vehicle.location.global_relative_frame)
+s.send(" Local Location: %s" % vehicle.location.local_frame)
+
+s.send("\nGet all vehicle attribute values:")
+s.send(" Global Location: %s" % vehicle.location.global_frame)
+s.send(" Global Location (relative altitude): %s" % vehicle.location.global_relative_frame)
+s.send(" Local Location: %s" % vehicle.location.local_frame)
+s.send(" Attitude: %s" % vehicle.attitude)
+s.send(" Velocity: %s" % vehicle.velocity)
+s.send(" GPS: %s" % vehicle.gps_0)
+s.send(" Gimbal status: %s" % vehicle.gimbal)
+s.send(" Battery: %s" % vehicle.battery)
+s.send(" EKF OK?: %s" % vehicle.ekf_ok)
+s.send(" Last Heartbeat: %s" % vehicle.last_heartbeat)
+s.send(" Rangefinder: %s" % vehicle.rangefinder)
+s.send(" Rangefinder distance: %s" % vehicle.rangefinder.distance)
+s.send(" Rangefinder voltage: %s" % vehicle.rangefinder.voltage)
+s.send(" Heading: %s" % vehicle.heading)
+s.send(" Is Armable?: %s" % vehicle.is_armable)
+s.send(" System status: %s" % vehicle.system_status.state)
+s.send(" Groundspeed: %s" % vehicle.groundspeed)  # settable)
+s.send(" Airspeed: %s" % vehicle.airspeed)  # settable)
+s.send(" Mode: %s" % vehicle.mode.name)  # settable)
+s.send(" Armed: %s" % vehicle.armed)  # settables.send()
+
+s.close()
 
 # Close vehicle object before exiting script
 vehicle.close()
