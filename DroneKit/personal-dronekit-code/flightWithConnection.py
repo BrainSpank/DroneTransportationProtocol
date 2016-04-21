@@ -4,7 +4,7 @@ from dronekit_sitl import SITL
 import bluetooth
 from PyBluez import *
 
-if len(sys.argv) == 0 or sys.argv[0] != "client" or sys.argv[0] != "server":
+if len(sys.argv) == 0 or (sys.argv[0] != "client" and sys.argv[0] != "server"):
     print " use command 'python flightWithConnection.py client [or] server' to run"
 
 connectionType = sys.argv[0]
@@ -64,3 +64,4 @@ while not vehicle.armed:
     print " Waiting for arming..."
     if connectionType == "client":
         socket.send(vehicle.location)
+    time.sleep(5)

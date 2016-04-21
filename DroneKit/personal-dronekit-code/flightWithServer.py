@@ -1,21 +1,25 @@
 print "Start simulator (SITL)"
-import sys
 from dronekit_sitl import SITL
 import bluetooth
 from PyBluez import *
 
-if len(sys.argv) == 0 or sys.argv[0] != "client" or sys.argv[0] != "server":
-    print " use command 'python flightWithConnection.py client [or] server' to run"
+def search():
+    devices = bluetooth.discover_devices(duration=10, lookup_names = True)
+    return devices
 
-connectionType = sys.args[0]
-if connectionType == "client":
-    home = '--home=51.01,-3.01,60,180'
-else:
-    home = '--home=51.00,-3.00,60,180'
+def getDevices():
+    while True:
+        results = search()
+        if (results!=None):
+            for addr, name in results:
+                print "{0} - {1}".format(addr, name)
+                return results
+        time.sleep(10)
+
 
 sitl = SITL(path="/home/pi/Documents/ardupilot/ArduCopter/ArduCopter.elf")
 # sitl.download('copter', 'stable', verbose=True)
-sitl_args = ['-I0', '--model', 'quad', home]
+sitl_args = ['-I0', '--model', 'quad', '--home=-35.363261,149.165230,584,353']
 sitl.launch(sitl_args, await_ready=True, restart=True)
 
 # Import DroneKit-Python
@@ -35,7 +39,6 @@ print " Is Armable?: %s" % vehicle.is_armable
 print " System status: %s" % vehicle.system_status.state
 print " Mode: %s" % vehicle.mode.name    # settable
 
-time.sleep(3)
 
 """
 Arms vehicle and fly to aTargetAltitude.
@@ -53,14 +56,9 @@ print "Arming motors"
 vehicle.mode    = VehicleMode("GUIDED")
 vehicle.armed   = True
 
-if connectionType == "client":
-    socket = client()
-else:
-    server()
+server()
 
 # Confirm vehicle armed before attempting to take off
 while not vehicle.armed:
     print " Is Armable?: %s" % vehicle.is_armable
     print " Waiting for arming..."
-    if connectionType == "client":
-        socket.send(vehicle.location)
