@@ -135,6 +135,7 @@ else:
     s.listen(backlog)
     try:
         client, clientInfo = s.accept()
+        print "Connected successfully"
         while 1:
             data = client.recv(size)
             if data:

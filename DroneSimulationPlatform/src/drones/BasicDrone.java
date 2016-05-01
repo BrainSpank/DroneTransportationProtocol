@@ -19,12 +19,14 @@ public class BasicDrone extends Drone {
         }
     }
 
+
+    public void avoid(){
+    }
+
+
     private void planRoute(){
         waypointUp(worldHeight/2);
         waypointGoTo(destinationPosition[0], destinationPosition[1]);
         waypointLand();
-    }
-
-    public void avoid(){
     }
 }

@@ -7,9 +7,8 @@ import exceptions.DroneCrashException;
 import exceptions.OutOfBatteryException;
 import helpers.CityData;
 import helpers.DroneData;
-import helpers.Key;
+import helpers.Position;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -53,14 +52,9 @@ public class World {
             requireNextTick2 = hubsReleaseDrones();
         }
 
-        Boolean requireAvoid = dronesSense();
+        ArrayList<Drone> requireAvoid = dronesSense();
 
-        if(requireNextTick || requireNextTick2){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return requireNextTick || requireNextTick2;
     }
 
 
@@ -111,16 +105,9 @@ public class World {
     }
 
 
-    private Boolean dronesSense(){
-        // TODO:  Add drone detecting method.  This will be used later to assess differnt avoidance techniques.
-        /*
-        for(Drone drone : drones){
-            if(drone.detect()){
-                drone.avoid();
-            }
-        }
-        */
-        return false;
+    private ArrayList<Drone> dronesSense(){
+        // TODO:  Add drone detecting method.  This will be used later to assess different avoidance techniques.
+        return null;
     }
 
 
@@ -169,15 +156,15 @@ public class World {
 
     private HashSet<Drone> crashOccured(){
         HashSet<Drone> returnDrones = new HashSet<>();
-        HashMap<Key, Drone> dronePositions = new HashMap<>();
+        HashMap<Position, Drone> dronePositions = new HashMap<>();
         for(Drone drone : drones){
-            Key key = new Key(drone.currentPosition);
-            if(!dronePositions.containsKey(key)){
-                dronePositions.put(key, drone);
+            Position position = new Position(drone.currentPosition);
+            if(!dronePositions.containsKey(position)){
+                dronePositions.put(position, drone);
             }
             else{
                 returnDrones.add(drone);
-                returnDrones.add(dronePositions.get(key));
+                returnDrones.add(dronePositions.get(position));
             }
         }
         return returnDrones.isEmpty() ? null : returnDrones;

@@ -4,7 +4,6 @@ import drones.Drone;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.PriorityQueue;
 
 public class Hub {
 
@@ -12,6 +11,7 @@ public class Hub {
     private ArrayDeque<Drone> dronesInHub = new ArrayDeque<>();
 
     public Hub(Integer[] inLocation){
+
         // set location
         location = inLocation;
     }
