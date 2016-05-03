@@ -94,7 +94,7 @@ public abstract class Drone {
         // General battery cost of any movement
         battery -= 0.5;
 
-        if(battery <= 0){
+        if(battery <= 0.0){
             throw new OutOfBatteryException();
         }
 

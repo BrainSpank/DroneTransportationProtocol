@@ -41,5 +41,20 @@ public class RandomHeightDrone extends Drone {
     }
 
     public void avoid(){
+        nextWaypointRandomHeight();
+    }
+
+    // Adds a waypoint that is vertically up from current location by upByMetres
+    private void nextWaypointRandomHeight() {
+        Integer[] newWaypoint = currentPosition;
+        int height = rand.nextInt(61);
+        // makes height between range 60-120
+        height += 60;
+        newWaypoint[2] = height;
+        if (newWaypoint[2] > worldHeight){
+            Main.logger.log("Waypoints cannot be set outside of the world boundaries");
+            newWaypoint[2] = worldHeight;
+        }
+        waypoints.addFirst(newWaypoint);
     }
 }

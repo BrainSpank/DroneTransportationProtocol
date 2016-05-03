@@ -8,7 +8,7 @@ public class Main {
     public static Logger logger = new Logger("testLog.txt", verbose);
 
     public static void main(String[] args) {
-/*
+
         Test crashTest = new CrashTest();
         if(crashTest.run()) {
             Main.logger.log("Crash Test has passed!");
@@ -16,7 +16,7 @@ public class Main {
         else {
             Main.logger.log("CRASH TEST FAILED");
         }
-        Main.logger.log();
+        Main.logger.log("");
 
 
         Test successTest = new SuccessfulFlightsTest();
@@ -26,10 +26,10 @@ public class Main {
         else{
             Main.logger.log("SUCCESS TEST FAILED");
         }
-        Main.logger.log();
+        Main.logger.log("");
 
 
-
+/*
         Test maxConcurrentBasicTest = new MaxConcurrentTest("BASICDRONE");
         if(maxConcurrentBasicTest.run()){
             Main.logger.log("Success Test has passed!");
@@ -37,8 +37,8 @@ public class Main {
         else{
             Main.logger.log("MAX CONCURRENT TEST FAILED");
         }
-        Main.logger.log();
-
+        Main.logger.log("");
+*/
 
         Test maxConcurrentRandomHeightTest = new MaxConcurrentTest("RANDOMHEIGHTDRONE");
         if(maxConcurrentRandomHeightTest.run()){
@@ -47,9 +47,9 @@ public class Main {
         else{
             Main.logger.log("MAX CONCURRENT TEST FAILED");
         }
-        Main.logger.log();
-        */
+        Main.logger.log("");
 
+/*
         Test hubTest = new HubTest();
         if(hubTest.run()){
             Main.logger.log("Success Test has passed!");
@@ -58,6 +58,8 @@ public class Main {
             Main.logger.log("HUB TEST FAILED");
         }
         Main.logger.log("");
+
+        */
 
         logger.close();
         System.exit(0);

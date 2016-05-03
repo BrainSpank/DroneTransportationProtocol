@@ -12,6 +12,7 @@ import helpers.Position;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 public class World {
 
@@ -52,7 +53,14 @@ public class World {
             requireNextTick2 = hubsReleaseDrones();
         }
 
-        ArrayList<Drone> requireAvoid = dronesSense();
+        HashMap<Position, ArrayList<Drone>> requireAvoid = dronesSense();
+        if(requireAvoid != null) {
+            for(Map.Entry<Position, ArrayList<Drone>> entry : requireAvoid.entrySet()){
+                for(Drone drone : entry.getValue()){
+                    drone.avoid();
+                }
+            }
+        }
 
         return requireNextTick || requireNextTick2;
     }
@@ -105,9 +113,34 @@ public class World {
     }
 
 
-    private ArrayList<Drone> dronesSense(){
-        // TODO:  Add drone detecting method.  This will be used later to assess different avoidance techniques.
-        return null;
+    private HashMap<Position, ArrayList<Drone>> dronesSense(){
+        HashMap<Position, ArrayList<Drone>> closeProximityDrones = new HashMap<>();
+
+        for(Drone drone : drones){
+            Integer[] currentPosition = drone.currentPosition;
+            // Floor current coordinates to the nearest 100 metres (equivilent to 20 cells because each cell = 5m)
+            currentPosition[0] = currentPosition[0] - currentPosition[0]%20;
+            currentPosition[1] = currentPosition[1] - currentPosition[1]%20;
+            currentPosition[2] = currentPosition[2] - currentPosition[2]%20;
+            Position position = new Position(currentPosition);
+
+            if(!closeProximityDrones.containsKey(position)){
+                closeProximityDrones.put(position, new ArrayList<Drone>());
+                closeProximityDrones.get(position).add(drone);
+            }
+            else{
+                closeProximityDrones.get(position).add(drone);
+            }
+
+            for(Map.Entry<Position, ArrayList<Drone>> entry : closeProximityDrones.entrySet()){
+                if(entry.getValue().isEmpty()){
+                    closeProximityDrones.remove(entry.getKey());
+                }
+            }
+        }
+
+        if(closeProximityDrones.isEmpty()) return null;
+        return closeProximityDrones;
     }
 
 
