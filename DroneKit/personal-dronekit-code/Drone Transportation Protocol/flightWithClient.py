@@ -49,19 +49,20 @@ while not vehicle.is_armable:
     print " Waiting for vehicle to initialise..."
     time.sleep(1)
 
+serverMACAddress = 'B8:27:EB:FD:16:4B'
+port = 3
+s = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
+s.connect((serverMACAddress, port))
 
-print "Arming motors"
-# Copter should arm in GUIDED mode
-vehicle.mode    = VehicleMode("GUIDED")
-vehicle.armed   = True
+s.send(" Current GPS location: %s" % vehicle.gps_0)
+time.sleep(0.5)
 
-client()
+s.send(" Battery: %s" % vehicle.battery)
+time.sleep(0.5)
 
-print " Setting ARMING_CHECK to 0"
-ARMING_CHECK = 0
+s.send(" System status: %s" % vehicle.system_status.state)
+time.sleep(0.5)
 
-# Confirm vehicle armed before attempting to take off
-while not vehicle.armed:
-    print " Is Armable?: %s" % vehicle.is_armable
-    print " Waiting for arming..."
-    time.sleep(5)
+s.send("quit")
+
+s.close()

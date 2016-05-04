@@ -51,6 +51,28 @@ while not vehicle.is_armable:
     time.sleep(1)
 
 
+hostMACAddress = 'B8:27:EB:FD:16:4B' # The MAC address of a Bluetooth adapter on the server. The server might have multiple Bluetooth adapters.
+port = 3
+backlog = 1
+size = 1024
+s = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
+s.bind((hostMACAddress, port))
+s.listen(backlog)
+try:
+    client, clientInfo = s.accept()
+    while 1:
+        data = client.recv(size)
+        if data:
+            print "Receiving data: "
+            print(data)
+            client.send(data) # Echo back to client
+except:
+    print("Closing socket")
+    client.close()
+s.close()
+
+
+"""
 print "Arming motors"
 # Copter should arm in GUIDED mode
 vehicle.mode    = VehicleMode("GUIDED")
@@ -67,3 +89,4 @@ while not vehicle.armed:
     print " Is Armable?: %s" % vehicle.is_armable
     print " Waiting for arming..."
     time.sleep(5)
+"""
