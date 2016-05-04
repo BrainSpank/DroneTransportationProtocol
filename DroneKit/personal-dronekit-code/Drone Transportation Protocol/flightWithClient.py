@@ -58,7 +58,7 @@ print "connected successfully to device: " + serverMACAddress
 print "sending current operation data..."
 
 
-s.send(" Current location: %s" % vehicle.location)
+s.send(" Current location: %s" % vehicle.location.global_frame)
 time.sleep(1)
 
 s.send(" Battery: %s" % vehicle.battery)
