@@ -54,16 +54,25 @@ port = 3
 s = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
 s.connect((serverMACAddress, port))
 
-s.send(" Current GPS location: %s" % vehicle.gps_0)
-time.sleep(0.5)
+print "connected successfully to device: " + serverMACAddress
+print "sending current operation data..."
+
+
+s.send(" Current location: %s" % vehicle.location)
+time.sleep(1)
 
 s.send(" Battery: %s" % vehicle.battery)
-time.sleep(0.5)
+time.sleep(1)
 
 s.send(" System status: %s" % vehicle.system_status.state)
-time.sleep(0.5)
+time.sleep(1)
+
+s.send(" Current heading: %s" % vehicle.heading)
+time.sleep(1)
 
 s.send("quit")
+
+print "data sent"
 
 s.close()
 
