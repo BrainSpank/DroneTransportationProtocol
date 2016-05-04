@@ -66,3 +66,5 @@ time.sleep(0.5)
 s.send("quit")
 
 s.close()
+
+sitl.stop()
