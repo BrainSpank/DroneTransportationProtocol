@@ -28,7 +28,8 @@ import time
 
 # Connect to the Vehicle.
 print "Connecting to vehicle on: 'tcp:127.0.0.1:5760'"
-vehicle = connect('tcp:127.0.0.1:5760', wait_ready=True)
+ip = 'tcp:127.0.0.1:5760'
+vehicle = connect(ip, wait_ready=True)
 
 # Get some vehicle attributes (state)
 print "Get some vehicle attribute values:"

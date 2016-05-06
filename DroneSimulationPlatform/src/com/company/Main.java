@@ -19,6 +19,16 @@ public class Main {
         Main.logger.log("");
 
 
+        Test hubTest = new HubTest();
+        if(hubTest.run()){
+            Main.logger.log("Hub Test has passed!");
+        }
+        else{
+            Main.logger.log("HUB TEST FAILED");
+        }
+        Main.logger.log("");
+
+
         Test successTest = new SuccessfulFlightsTest();
         if(successTest.run()){
             Main.logger.log("Success Test has passed!");
@@ -29,37 +39,26 @@ public class Main {
         Main.logger.log("");
 
 
-/*
         Test maxConcurrentBasicTest = new MaxConcurrentTest("BASICDRONE");
         if(maxConcurrentBasicTest.run()){
-            Main.logger.log("Success Test has passed!");
+            Main.logger.log("Max Concurrent Test has passed!");
         }
         else{
             Main.logger.log("MAX CONCURRENT TEST FAILED");
         }
         Main.logger.log("");
-*/
+
 
         Test maxConcurrentRandomHeightTest = new MaxConcurrentTest("RANDOMHEIGHTDRONE");
         if(maxConcurrentRandomHeightTest.run()){
-            Main.logger.log("Success Test has passed!");
+            Main.logger.log("Randome Height Test has passed!");
         }
         else{
-            Main.logger.log("MAX CONCURRENT TEST FAILED");
+            Main.logger.log("RANDOM HEIGHT TEST FAILED");
         }
         Main.logger.log("");
 
-/*
-        Test hubTest = new HubTest();
-        if(hubTest.run()){
-            Main.logger.log("Success Test has passed!");
-        }
-        else{
-            Main.logger.log("HUB TEST FAILED");
-        }
-        Main.logger.log("");
 
-        */
 
         logger.close();
         System.exit(0);

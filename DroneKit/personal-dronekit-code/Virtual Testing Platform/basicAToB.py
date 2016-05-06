@@ -15,6 +15,7 @@ sitl_args = ['-I0', '--model', 'quad',
 
 sitl.launch(sitl_args, await_ready=True, restart=True, verbose=True)
 
+
 # Connect to the Vehicle.
 print "Connecting to vehicle on: 'tcp:127.0.0.1:5760'"
 vehicle = connect('tcp:127.0.0.1:5760', wait_ready=True)
