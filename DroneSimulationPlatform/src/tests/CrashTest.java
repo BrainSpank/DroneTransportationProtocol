@@ -19,6 +19,8 @@ public class CrashTest extends Test{
             // As this tests for drones crashing, catching this exception counts as a success.
             //e.printStackTrace();
             return true;
+        } finally {
+            outputFlightDataInGraphableFormat("crashFlightData.m");
         }
 
         // if test completes without catching an exception the it has failed so return false

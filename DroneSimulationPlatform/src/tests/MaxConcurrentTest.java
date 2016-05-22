@@ -19,18 +19,19 @@ public class MaxConcurrentTest extends Test{
 
     public Boolean run(){
         int sumOfDronesBeforeCrash = 0;
-        int numOfIterations = 100;
+        int numOfIterations = 50;
         for(int i = 0; i < numOfIterations; i++){
             setupWorld();
             int numOfDrones = 0;
             Boolean noCrashes = true;
             while (noCrashes) {
                 // set up drones
-                numOfDrones = numOfDrones + 10;
+                numOfDrones = numOfDrones + 5;
                 droneData = generateRandomDrones(numOfDrones, droneType);
 
                 try{
                     run(droneData);
+                    outputFlightDataInGraphableFormat("maxConcurrentFlightData.m");
                 } catch (DroneCrashException e){
                     Main.logger.log("Crash occurred with: " + numOfDrones + " concurrent drones");
                     sumOfDronesBeforeCrash += numOfDrones;

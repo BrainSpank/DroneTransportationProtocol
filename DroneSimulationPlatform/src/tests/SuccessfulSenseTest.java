@@ -2,21 +2,24 @@ package tests;
 
 import exceptions.DroneCrashException;
 
-public class SuccessfulFlightsTest extends Test{
-    public SuccessfulFlightsTest(){
+public class SuccessfulSenseTest extends Test{
+
+    public SuccessfulSenseTest(){
         super();
     }
 
     public Boolean run(){
-        droneData = readInDrones("successfulFlightDrones.csv");
+        droneData = readInDrones("droneSense.csv");
         try{
             run(droneData);
         } catch (DroneCrashException e){
             return false;
         }
 
-        outputFlightDataInGraphableFormat("successFlightData.m");
+        outputFlightDataInGraphableFormat("successSenseData.m");
 
         return true;
     }
 }
+
+

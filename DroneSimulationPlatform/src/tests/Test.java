@@ -1,10 +1,12 @@
 package tests;
 
+import drones.Drone;
 import exceptions.DroneCrashException;
 import exceptions.OutOfBatteryException;
 import helpers.CityData;
 import helpers.CsvReader;
 import helpers.DroneData;
+import helpers.Logger;
 import world.World;
 
 import java.nio.file.Path;
@@ -44,6 +46,7 @@ public abstract class Test {
 
         // finish and print log
         world.printWorldStats();
+
     }
 
 
@@ -65,6 +68,39 @@ public abstract class Test {
         // set up world
         CityData cd = CsvReader.getCityData(city, citiesDataPath);
         world = new World(cd);
+    }
+
+    protected void outputFlightDataInGraphableFormat(String fileName){
+
+        StringBuilder x = new StringBuilder("x = [");
+        StringBuilder y = new StringBuilder("y = [");
+        StringBuilder z = new StringBuilder("z = [");
+        /// get all completed drone journeys
+        for(Drone drone : world.completedJourneyDrones){
+            String prefix = "";
+            for(Integer[] waypoint : drone.visitedWaypoints){
+                x.append(prefix + waypoint[0].toString());
+                y.append(prefix + waypoint[1].toString());
+                z.append(prefix + waypoint[2].toString());
+                prefix = ",";
+            }
+            x.append(";");
+            y.append(";");
+            z.append(";");
+        }
+
+        x.append("]';");
+        y.append("]';");
+        z.append("]';");
+
+        Logger graphLogger = new Logger(fileName, false);
+
+        graphLogger.log(x.toString());
+        graphLogger.log(y.toString());
+        graphLogger.log(z.toString());
+        graphLogger.log("plot3(x,y,z)");
+
+        graphLogger.close();
     }
 }
 

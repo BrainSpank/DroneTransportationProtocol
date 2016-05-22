@@ -27,9 +27,9 @@ public class World {
     // 500 feet (the max flying height for drones) = 152 metres
     public final int worldHeightMetres = 152;
     public final int worldHeightCells = worldHeightMetres/cellSize;
+    public ArrayList<Drone> completedJourneyDrones = new ArrayList<>();
 
     private ArrayList<Drone> drones = new ArrayList<>();
-    private ArrayList<Drone> completedJourneyDrones = new ArrayList<>();
     private int maxConcurrentDrones = 0;
     private ArrayList<Hub> hubs = new ArrayList<>();
     private final int delayBetweenDroneReleases = 2;
@@ -47,14 +47,16 @@ public class World {
     public Boolean tick() throws DroneCrashException, OutOfBatteryException{
         Boolean requireNextTick = moveAllDrones();
 
-        Boolean requireNextTick2 = true;
-
-        if(time%delayBetweenDroneReleases == 0) {
-            requireNextTick2 = hubsReleaseDrones();
+        Boolean requireNextTick2 = false;
+        if(!hubs.isEmpty()){
+            requireNextTick2 = true;
+            if(time%delayBetweenDroneReleases == 0) {
+                requireNextTick2 = hubsReleaseDrones();
+            }
         }
 
         HashMap<Position, ArrayList<Drone>> requireAvoid = dronesSense();
-        if(requireAvoid != null) {
+        if(!requireAvoid.isEmpty()) {
             for(Map.Entry<Position, ArrayList<Drone>> entry : requireAvoid.entrySet()){
                 for(Drone drone : entry.getValue()){
                     drone.avoid();
@@ -119,10 +121,11 @@ public class World {
         for(Drone drone : drones){
             Integer[] currentPosition = drone.currentPosition;
             // Floor current coordinates to the nearest 100 metres (equivilent to 20 cells because each cell = 5m)
-            currentPosition[0] = currentPosition[0] - currentPosition[0]%20;
-            currentPosition[1] = currentPosition[1] - currentPosition[1]%20;
-            currentPosition[2] = currentPosition[2] - currentPosition[2]%20;
-            Position position = new Position(currentPosition);
+            Integer[] currentSector = new Integer[3];
+            currentSector[0] = currentPosition[0] - currentPosition[0]%20;
+            currentSector[1] = currentPosition[1] - currentPosition[1]%20;
+            currentSector[2] = currentPosition[2] - currentPosition[2]%20;
+            Position position = new Position(currentSector);
 
             if(!closeProximityDrones.containsKey(position)){
                 closeProximityDrones.put(position, new ArrayList<Drone>());
@@ -131,20 +134,22 @@ public class World {
             else{
                 closeProximityDrones.get(position).add(drone);
             }
+        }
 
-            for(Map.Entry<Position, ArrayList<Drone>> entry : closeProximityDrones.entrySet()){
-                if(entry.getValue().isEmpty()){
-                    closeProximityDrones.remove(entry.getKey());
-                }
+        HashMap<Position, ArrayList<Drone>> returnDrones = new HashMap<>();
+
+        for(Map.Entry<Position, ArrayList<Drone>> entry : closeProximityDrones.entrySet()){
+            if(entry.getValue().size() > 1){
+                returnDrones.put(entry.getKey(), entry.getValue());
+                //closeProximityDrones.remove(entry.getKey());
             }
         }
 
-        if(closeProximityDrones.isEmpty()) return null;
-        return closeProximityDrones;
+        return returnDrones;
     }
 
 
-    // Moves every drone by one step.  Detects if a crash has occured.
+    // Moves every drone by one step.  Detects if a crash has occurred.
     private Boolean moveAllDrones() throws DroneCrashException, OutOfBatteryException{
         Boolean ongoingJourneys = false;
 
@@ -171,7 +176,7 @@ public class World {
 
     private void checkForCrashes() throws DroneCrashException{
         HashSet<Drone> crashedDrones = crashOccured();
-        if(crashedDrones != null){
+        if(!crashedDrones.isEmpty()){
             Main.logger.log("A crash has occured between 2 or more drones!");
             int i = 1;
             for(Drone d : crashedDrones){
@@ -200,6 +205,6 @@ public class World {
                 returnDrones.add(dronePositions.get(position));
             }
         }
-        return returnDrones.isEmpty() ? null : returnDrones;
+        return returnDrones;
     }
 }

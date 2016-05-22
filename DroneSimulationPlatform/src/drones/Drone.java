@@ -6,6 +6,7 @@ import helpers.ArrayPrinter;
 import helpers.DroneData;
 import world.World;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public abstract class Drone {
@@ -15,6 +16,7 @@ public abstract class Drone {
     public int startTime = World.time;
     public int endTime;
     public Integer[] currentPosition = new Integer[3];
+    public ArrayList<Integer[]> visitedWaypoints = new ArrayList<>();
 
     protected ArrayDeque<Integer[]> waypoints = new ArrayDeque<>();
     protected Integer[] destinationPosition = new Integer[3];
@@ -56,7 +58,8 @@ public abstract class Drone {
 
         // Check if waypoint has been reached
         if(Arrays.equals(currentPosition, waypoints.peekFirst())){
-            waypoints.removeFirst();
+            Integer[] tempWaypoint = waypoints.removeFirst().clone();
+            visitedWaypoints.add(tempWaypoint);
 
             // If journey has been completed return false
             if(Arrays.equals(currentPosition, destinationPosition)){

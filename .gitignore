@@ -2,3 +2,5 @@
 DroneKit/dronekit-python/
 
 DroneSimulationPlatform/testLog.txt
+
+*.m

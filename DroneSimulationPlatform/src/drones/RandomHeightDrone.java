@@ -11,6 +11,7 @@ public class RandomHeightDrone extends Drone {
 
     private int cellSize;
     private Random rand = new Random();
+    private int senseCounter = 0;
 
     public RandomHeightDrone(DroneData droneData, int diameter, int height) throws InvalidWaypointException {
         super(droneData, diameter, height);
@@ -30,7 +31,7 @@ public class RandomHeightDrone extends Drone {
         // Select random height to fly at between 200 feet (60 metres) and 400 feet (120 metres)
         // returns random number between 0 and 60
         int height = rand.nextInt(61);
-        // makes height between range 60-120
+        // so it is valid fly zone
         height += 60;
         // Convert height from metres into cells
         height = height/ World.cellSize;
@@ -41,20 +42,25 @@ public class RandomHeightDrone extends Drone {
     }
 
     public void avoid(){
-        nextWaypointRandomHeight();
+        if(senseCounter == 0) {
+            nextWaypointRandomHeight();
+        }
+        else{
+            senseCounter--;
+        }
     }
 
     // Adds a waypoint that is vertically up from current location by upByMetres
     private void nextWaypointRandomHeight() {
         Integer[] newWaypoint = currentPosition;
         int height = rand.nextInt(61);
-        // makes height between range 60-120
         height += 60;
-        newWaypoint[2] = height;
+        newWaypoint[2] = height/World.cellSize;
         if (newWaypoint[2] > worldHeight){
             Main.logger.log("Waypoints cannot be set outside of the world boundaries");
             newWaypoint[2] = worldHeight;
         }
         waypoints.addFirst(newWaypoint);
+        senseCounter = 20;
     }
 }

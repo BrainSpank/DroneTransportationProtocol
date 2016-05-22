@@ -50,7 +50,7 @@ public class HubTest extends Test{
 
     private void addDronesToHubs(){
         for(Hub hub : hubs){
-            ArrayList<Drone> drones = generateRandomDrones(50, hub);
+            ArrayList<Drone> drones = generateRandomDrones(5, hub);
             hub.addDrones(drones);
         }
     }

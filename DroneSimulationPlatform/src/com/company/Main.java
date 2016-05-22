@@ -8,23 +8,13 @@ public class Main {
     public static Logger logger = new Logger("testLog.txt", verbose);
 
     public static void main(String[] args) {
-
+/*
         Test crashTest = new CrashTest();
         if(crashTest.run()) {
             Main.logger.log("Crash Test has passed!");
         }
         else {
             Main.logger.log("CRASH TEST FAILED");
-        }
-        Main.logger.log("");
-
-
-        Test hubTest = new HubTest();
-        if(hubTest.run()){
-            Main.logger.log("Hub Test has passed!");
-        }
-        else{
-            Main.logger.log("HUB TEST FAILED");
         }
         Main.logger.log("");
 
@@ -39,6 +29,16 @@ public class Main {
         Main.logger.log("");
 
 
+        Test successfulSenseTest = new SuccessfulSenseTest();
+        if(successfulSenseTest.run()){
+            Main.logger.log("Successful Sense Test has passed!");
+        }
+        else{
+            Main.logger.log("SENSE TEST FAILED");
+        }
+        Main.logger.log("");
+
+
         Test maxConcurrentBasicTest = new MaxConcurrentTest("BASICDRONE");
         if(maxConcurrentBasicTest.run()){
             Main.logger.log("Max Concurrent Test has passed!");
@@ -47,17 +47,16 @@ public class Main {
             Main.logger.log("MAX CONCURRENT TEST FAILED");
         }
         Main.logger.log("");
-
+*/
 
         Test maxConcurrentRandomHeightTest = new MaxConcurrentTest("RANDOMHEIGHTDRONE");
         if(maxConcurrentRandomHeightTest.run()){
-            Main.logger.log("Randome Height Test has passed!");
+            Main.logger.log("Random Height Test has passed!");
         }
         else{
             Main.logger.log("RANDOM HEIGHT TEST FAILED");
         }
         Main.logger.log("");
-
 
 
         logger.close();

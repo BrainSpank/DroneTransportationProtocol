@@ -27,6 +27,7 @@ public class Logger {
     }
 
     public void close(){
+        writer.flush();
         writer.close();
     }
 }
