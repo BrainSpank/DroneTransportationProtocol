@@ -1,16 +1,22 @@
 print "Start simulator (SITL)"
 from dronekit_sitl import SITL
 import os
+import platform
 
+platform = platform.system()
+print platform
 
-sitl = SITL(path="/home/pi/Documents/ardupilot/ArduCopter/ArduCopter.elf")
-# sitl.download('copter', 'stable', verbose=True)
+if(platform == "Linux"):
+    sitl = SITL(path="/home/pi/Documents/ardupilot/ArduCopter/ArduCopter.elf")
+elif(platform == "Darwin"):
+    sitl = SITL()
+    sitl.download('copter', 'stable', verbose=True)
+
 sitl_args = ['-I0', '--model', 'quad', '--home=-35.363261,149.165230,584,353']
 sitl.launch(sitl_args, await_ready=True, restart=True)
 
 # Import DroneKit-Python
 from dronekit import connect, VehicleMode
-import time
 
 # Connect to the Vehicle.
 print "Connecting to vehicle on: 'tcp:127.0.0.1:5760'"

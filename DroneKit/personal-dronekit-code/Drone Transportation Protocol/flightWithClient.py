@@ -2,6 +2,7 @@ print "Start simulator (SITL)"
 from dronekit_sitl import SITL
 import bluetooth
 from PyBluez import client
+import platform
 
 def search():
     devices = bluetooth.discover_devices(duration=10, lookup_names = True)
@@ -17,8 +18,14 @@ def getDevices():
         time.sleep(10)
 
 
-sitl = SITL(path="/home/pi/Documents/ardupilot/ArduCopter/ArduCopter.elf")
-# sitl.download('copter', 'stable', verbose=True)
+platform = platform.system()
+
+if(platform == "Linux"):
+    sitl = SITL(path="/home/pi/Documents/ardupilot/ArduCopter/ArduCopter.elf")
+elif(platform == "Darwin"):
+    sitl = SITL()
+    sitl.download('copter', 'stable', verbose=True)
+
 sitl_args = ['-I0', '--model', 'quad', '--home=-35.363261,149.165230,584,353']
 sitl.launch(sitl_args, await_ready=True, restart=True)
 
