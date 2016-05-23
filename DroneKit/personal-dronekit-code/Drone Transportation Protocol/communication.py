@@ -6,6 +6,7 @@ import os
 import platform
 import sys
 import bluetooth
+import time
 
 
 if (len(sys.argv) > 1):
@@ -62,6 +63,7 @@ if sys.argv[2] == "client":
     port = 3
     s.connect((serverMACAddress, port))
 
+    print "Sending Waypoints:"
     s.send(" Global Location: %s" % vehicle.location.global_frame)
     s.send(" Global Location (relative altitude): %s" % vehicle.location.global_relative_frame)
     s.send(" Local Location: %s" % vehicle.location.local_frame)
@@ -78,21 +80,17 @@ else:
     try:
         client, clientInfo = s.accept()
         print "Connected successfully"
+        data = client.recv(size)
         while 1:
             data = client.recv(size)
             if data:
-                print "Incoming Data:"
+                print "Incoming bluetooth data:"
                 print(data)
-                client.send(data) # Echo back to client
     except:
         print("Closing socket")
         client.close()
     s.close()
 
-
-
-
-#  share route
 
 
 # re plan route
