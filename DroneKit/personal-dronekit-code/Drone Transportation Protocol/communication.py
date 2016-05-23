@@ -57,7 +57,7 @@ waypoints.append(point3)
 print " Connecting via Bluetooth"
 s = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
 
-if sys.argv[0] == "client":
+if sys.argv[2] == "client":
     serverMACAddress = 'B8:27:EB:FD:16:4B'
     port = 3
     s.connect((serverMACAddress, port))
