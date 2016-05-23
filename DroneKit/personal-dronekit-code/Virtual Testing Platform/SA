@@ -1,0 +1,13 @@
+Start simulator (SITL)
+8
+['communication.py', 'fhello', 'world', 'it', 'this', 'thing', 'on?', '?DSAFSF']
+SITL already Downloaded.
+Connecting to vehicle on: 'tcp:127.0.0.1:5760'
+Get some vehicle attribute values:
+ GPS: GPSInfo:fix=3,num_sat=10
+ Battery: Battery:voltage=12.587,current=0.0,level=100
+ Last Heartbeat: 0.854554176331
+ Is Armable?: False
+ System status: STANDBY
+ Mode: STABILIZE
+Completed

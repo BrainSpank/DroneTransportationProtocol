@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17d4c706-002f-4a24-9f2f-841c1e03ab13" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/log.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../DroneKit/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../DroneKit/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../DroneKit/personal-dronekit-code/Virtual Testing Platform/hello.py" afterPath="$PROJECT_DIR$/../DroneKit/personal-dronekit-code/Virtual Testing Platform/hello.py" />
     </list>
     <ignored path="DroneSimulationPlatform.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -833,12 +832,12 @@
       <workItem from="1463843681423" duration="754000" />
       <workItem from="1463903626793" duration="813000" />
       <workItem from="1463916787908" duration="20734000" />
-      <workItem from="1463996283173" duration="301000" />
+      <workItem from="1463996283173" duration="408000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166732000" />
+    <option name="totallyTimeSpent" value="166839000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

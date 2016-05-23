@@ -4,7 +4,6 @@ import os
 import platform
 
 platform = platform.system()
-print platform
 
 if(platform == "Linux"):
     sitl = SITL(path="/home/pi/Documents/ardupilot/ArduCopter/ArduCopter.elf")
