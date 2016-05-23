@@ -63,7 +63,7 @@ if sys.argv[2] == "client":
     port = 3
     s.connect((serverMACAddress, port))
 
-    print "Sending Waypoints:"
+    print "Sending Data:"
     s.send(" Global Location: %s" % vehicle.location.global_frame)
     s.send(" Global Location (relative altitude): %s" % vehicle.location.global_relative_frame)
     s.send(" Local Location: %s" % vehicle.location.local_frame)
