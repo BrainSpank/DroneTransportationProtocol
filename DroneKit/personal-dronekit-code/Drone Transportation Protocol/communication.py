@@ -58,7 +58,7 @@ print " Connecting via Bluetooth"
 s = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
 
 if sys.argv[2] == "client":
-    serverMACAddress = 'B8:27:EB:FD:16:4B'
+    serverMACAddress = '00:11:67:C1:4B:76'
     port = 3
     s.connect((serverMACAddress, port))
 
@@ -69,7 +69,7 @@ if sys.argv[2] == "client":
     s.close()
 
 else:
-    hostMACAddress = 'B8:27:EB:FD:16:4B' # The MAC address of a Bluetooth adapter on the server. The server might have multiple Bluetooth adapters.
+    hostMACAddress = '00:11:67:C1:4B:76' # The MAC address of a Bluetooth adapter on the server. The server might have multiple Bluetooth adapters.
     port = 3
     backlog = 1
     size = 1024
